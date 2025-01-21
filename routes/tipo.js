@@ -1,8 +1,9 @@
 const express = require("express")
-const PadreController = require("../controllers/PadreController")
+const TipoController = require("../controllers/TipoController")
 
 const router = express.Router()
 
-router.get("/",PadreController.getAll)
+router.get("/",TipoController.getAll)
+router.post("/create",TipoController.create)
 
 module.exports = router
