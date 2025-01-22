@@ -1,6 +1,5 @@
 const Lote = require("../models/Lote")
 
-
 const LoteController = {
     
     async getAll(req, res) {
@@ -21,7 +20,15 @@ const LoteController = {
             res.status(500).send({ message: "There was a problem", error })
         }
     },
-    
+    async getById(req, res) {
+        try {
+            const lote = await Lote.findById(req.params._id)
+            .populate("contenidoIds")
+            res.send(lote)
+        } catch (error) {
+            console.error(error);
+        }
+    },
 }
 
 module.exports = LoteController

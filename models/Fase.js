@@ -8,7 +8,6 @@ const FaseSchema = new mongoose.Schema({
   descripcion: String,
   loteId: { type: ObjectId, ref: "Lote" },
   fecha : Date
-
   
 }, { timestamps: true });
 

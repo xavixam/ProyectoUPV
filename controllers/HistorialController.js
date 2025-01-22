@@ -35,7 +35,15 @@ const HistorialController = {
             res.status(500).send({ message: "There was a problem", error });
         }
     },
-    
+    async getById(req, res) {
+        try {
+            const historial = await Historial.findById(req.params._id)
+            .populate("trabajadorId")
+            res.send(historial)
+        } catch (error) {
+            console.error(error);
+        }
+    },
 }
 
 module.exports = HistorialController

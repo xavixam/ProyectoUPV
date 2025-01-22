@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.SchemaTypes.ObjectId;
 
 const FotoSchema = new mongoose.Schema({
-  nRegistro: String,
+  nombre: String,
   observaciones: String,
   padreId: { type: ObjectId, ref: "Padre" },
   loteId: {type: ObjectId, ref: "Lote"},

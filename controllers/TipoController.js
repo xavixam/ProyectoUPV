@@ -1,6 +1,5 @@
 const Tipo = require("../models/Tipo")
 
-
 const TipoController = {
     
     async getAll(req, res) {
@@ -21,7 +20,14 @@ const TipoController = {
             res.status(500).send({ message: "There was a problem", error })
         }
     },
-    
+    async getById(req, res) {
+        try {
+            const tipo = await Tipo.findById(req.params._id)
+            res.send(tipo)
+        } catch (error) {
+            console.error(error);
+        }
+    },
 }
 
 module.exports = TipoController

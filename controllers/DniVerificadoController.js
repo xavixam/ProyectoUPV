@@ -21,7 +21,14 @@ const DniVerificadoController = {
             res.status(500).send({ message: "There was a problem", error })
         }
     },
-    
+    async getById(req, res) {
+        try {
+            const dniVerificado = await DniVerificado.findById(req.params._id)
+            res.send(dniVerificado)
+        } catch (error) {
+            console.error(error);
+        }
+    },
 }
 
 module.exports = DniVerificadoController

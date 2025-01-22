@@ -23,7 +23,16 @@ const FotoController = {
             res.status(500).send({ message: "Ha habido un problema", error })
         }
     },
-    
+    async getById(req, res) {
+        try {
+            const foto = await Foto.findById(req.params._id)
+            .populate("padreId") 
+            .populate("loteId");
+            res.send(foto)
+        } catch (error) {
+            console.error(error);
+        }
+    },
 }
 
 module.exports = FotoController

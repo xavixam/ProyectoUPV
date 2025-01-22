@@ -41,9 +41,17 @@ const FaseController = {
             console.error(error);
             res.status(500).send({ message: "There was a problem", error });
         }
-    }
-    
-    
+    },
+    async getById(req, res) {
+        try {
+            const fase = await Fase.findById(req.params._id)
+            .populate("trabajadorId")
+            .populate("loteId")
+            res.send(fase)
+        } catch (error) {
+            console.error(error);
+        }
+    },
     
 }
 

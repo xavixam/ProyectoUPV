@@ -1,6 +1,5 @@
 const Padre = require("../models/Padre")
 
-
 const LoteController = {
     
     async getAll(req, res) {
@@ -22,7 +21,17 @@ const LoteController = {
             res.status(500).send({ message: "Ha habido un problema", error })
         }
     },
-    
+    async getById(req, res) {
+        try {
+            const padre = await Padre.findById(req.params._id)
+            .populate("fotosIds")
+            .populate("tipoId")
+            .populate("loteId")
+            res.send(padre)
+        } catch (error) {
+            console.error(error);
+        }
+    },
 }
 
 module.exports = LoteController
