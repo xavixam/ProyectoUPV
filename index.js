@@ -9,13 +9,13 @@ const cors = require("cors")
 app.use(express.json())
 app.use(cors());
 
-app.use("/lote",require("./routes/lote"))
-app.use("/dniVerificado",require("./routes/dniVerificado"))
-app.use("/fase",require("./routes/fase"))
-app.use("/foto",require("./routes/foto"))
-app.use("/historial",require("./routes/historial"))
-app.use("/padre",require("./routes/padre"))
-app.use("/tipo",require("./routes/tipo"))
+app.use("/lotes",require("./routes/lote"))
+app.use("/dniVerificados",require("./routes/dniVerificado"))
+app.use("/fases",require("./routes/fase"))
+app.use("/fotos",require("./routes/foto"))
+app.use("/historiales",require("./routes/historial"))
+app.use("/padres",require("./routes/padre"))
+app.use("/tipos",require("./routes/tipo"))
 
 dbConnection()
 

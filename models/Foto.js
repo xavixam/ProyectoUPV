@@ -5,7 +5,7 @@ const FotoSchema = new mongoose.Schema({
   nRegistro: String,
   observaciones: String,
   padreId: { type: ObjectId, ref: "Padre" },
-  idLote:{type: ObjectId, ref: "Lote"},
+  loteId: {type: ObjectId, ref: "Lote"},
   img:String,
   comentarios:String,
   estado:String

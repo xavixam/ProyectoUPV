@@ -10,6 +10,6 @@ const HistorialSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-const Historial = mongoose.model('Historial', HistorialSchema);
+const Historial = mongoose.model('Historiales', HistorialSchema);
 
 module.exports = Historial;
