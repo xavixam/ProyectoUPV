@@ -5,12 +5,12 @@ const LoteSchema = new mongoose.Schema({
   nRegistro: String,
   carpeta_principal_id: String,
   observaciones: String,
-  // contenidoIds: [{ type: ObjectId, ref: "Padre" }],
   subCarpetas: [{ type: ObjectId, ref: "SubCarpeta" }],
-  // restauradas:[{type: ObjectId,ref: "Foto"}],
+  // subCarpetas: [],
+
 
   faseId: { type: ObjectId, ref: "Fase" }
-  
+
 }, { timestamps: true });
 
 LoteSchema.index({
