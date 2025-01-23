@@ -4,7 +4,7 @@ const ObjectId = mongoose.SchemaTypes.ObjectId;
 const FotoSchema = new mongoose.Schema({
   nombre: String,
   observaciones: String,
-  padreId: { type: ObjectId, ref: "Padre" },
+  subCarpetaInternaId: { type: ObjectId, ref: "SubCarpetaInterna" },
   loteId: {type: ObjectId, ref: "Lote"},
   img:String,
   comentarios:String,
