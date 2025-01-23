@@ -1,4 +1,5 @@
 const Foto = require("../models/Foto")
+const SubCarpetaInterna = require("../models/SubCarpetaInterna")
 
 const FotoController = {
     
@@ -20,7 +21,7 @@ const FotoController = {
             // Actualizar la subCarpetaInterna correspondiente para agregar la foto creada a su array imgs
             await SubCarpetaInterna.findByIdAndUpdate(
                 req.body.subCarpetaInternaId, // El ID de la subCarpetaInterna al que pertenece la foto
-                { $push: { imgs: foto._id } }, // Agregar el ID de la foto al array imgs
+                { $push: { imagenes: foto._id } }, // Agregar el ID de la foto al array imgs
                 { new: true } // Devolver el documento actualizado (opcional, por si lo necesitas)
             );
     
