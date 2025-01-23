@@ -16,6 +16,8 @@ app.use("/fotos",require("./routes/foto"))
 app.use("/historiales",require("./routes/historial"))
 app.use("/padres",require("./routes/padre"))
 app.use("/tipos",require("./routes/tipo"))
+app.use("/subCarpetas",require("./routes/subCarpeta"))
+app.use("/subCarpetaInternas",require("./routes/subCarpetaInterna"))
 
 dbConnection()
 

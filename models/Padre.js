@@ -9,6 +9,7 @@ const PadreSchema = new mongoose.Schema({
   interior:[{ type: ObjectId, ref: "Foto" }],
   digitalizadas:[{ type: ObjectId, ref: "Foto" }],
   retocadas:[{ type: ObjectId, ref: "Foto" }],
+  
 }, { timestamps: true });
 
 PadreSchema.index({

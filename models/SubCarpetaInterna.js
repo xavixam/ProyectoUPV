@@ -8,7 +8,6 @@ const SubCarpetaInternaSchema = new mongoose.Schema({
   nRegistro: String,
   tipo:String,
   
-  
 }, { timestamps: true });
 
 SubCarpetaInternaSchema.index({

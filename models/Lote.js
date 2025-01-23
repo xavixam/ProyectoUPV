@@ -9,8 +9,6 @@ const LoteSchema = new mongoose.Schema({
   subCarpetas: [{ type: ObjectId, ref: "SubCarpeta" }],
   restauradas:[{type: ObjectId,ref: "Foto"}],
   faseId: { type: ObjectId, ref: "Fase" }
-
-
   
 }, { timestamps: true });
 
