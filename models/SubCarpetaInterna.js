@@ -3,8 +3,8 @@ const ObjectId = mongoose.SchemaTypes.ObjectId;
 
 const SubCarpetaInternaSchema = new mongoose.Schema({
   
-  imgs: [{type: ObjectId, ref: "Foto"}],
-  subCarpetaInternaDriveId: String,
+  imagenes: [{type: ObjectId, ref: "Foto"}],
+  subcarpetas_internas_id: String,
   nRegistro: String,
   tipo:String,
   

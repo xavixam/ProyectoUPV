@@ -14,13 +14,20 @@ const FotoController = {
     },
     async create(req, res) {
         try {
-            req.body.padreId = req.padre._id;   
-            const foto = await Foto.create(req.body)
-
-            res.status(201).send({ message: "Foto creada", foto })
+            // Crear la foto con los datos proporcionados en el cuerpo de la solicitud
+            const foto = await Foto.create(req.body);
+    
+            // Actualizar la subCarpetaInterna correspondiente para agregar la foto creada a su array imgs
+            await SubCarpetaInterna.findByIdAndUpdate(
+                req.body.subCarpetaInternaId, // El ID de la subCarpetaInterna al que pertenece la foto
+                { $push: { imgs: foto._id } }, // Agregar el ID de la foto al array imgs
+                { new: true } // Devolver el documento actualizado (opcional, por si lo necesitas)
+            );
+    
+            res.status(201).send({ message: "Foto creada y añadida a SubCarpetaInterna", foto });
         } catch (error) {
             console.error(error);
-            res.status(500).send({ message: "Ha habido un problema", error })
+            res.status(500).send({ message: "Ha habido un problema", error });
         }
     },
     async getById(req, res) {

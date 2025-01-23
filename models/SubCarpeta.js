@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
+const ObjectId = mongoose.SchemaTypes.ObjectId;
+
 
 const SubCarpetaSchema = new mongoose.Schema({
-  subCarpetaDriveId: String,
+  id_subcarpeta: String, //id del drive
   nRegistro: String,
   tipo:String,
+  subcarpetas_internas: [{ type: ObjectId, ref: "SubCarpetaInterna" }],
+
   
 }, { timestamps: true });
 
