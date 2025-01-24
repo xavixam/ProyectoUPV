@@ -6,8 +6,7 @@ const SubCarpetaSchema = new mongoose.Schema({
   id_subcarpeta: String, //id del drive
   nRegistro: String,
   tipo:String,
-//   subcarpetas_internas: [{ type: ObjectId, ref: "SubCarpetaInterna" }],
-  subcarpetas_internas: [],
+  subCarpetasInternas: [],
 
   
 }, { timestamps: true });
@@ -15,6 +14,11 @@ const SubCarpetaSchema = new mongoose.Schema({
 SubCarpetaSchema.index({
   nRegistro: "text",
 });
+SubCarpetaSchema.index({
+  id_subcarpeta: "text",
+});
+
+
 
 const SubCarpeta = mongoose.model('SubCarpeta', SubCarpetaSchema);
 
