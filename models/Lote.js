@@ -9,7 +9,7 @@ const LoteSchema = new mongoose.Schema({
   estado: String,
   otros: String,
   formularioEscaneado: String,
-  dmg:String,
+  dmg:[],
   subCarpetas: [],
   lugar:String,
   faseId: { type: ObjectId, ref: "Fase" },
@@ -17,6 +17,7 @@ const LoteSchema = new mongoose.Schema({
   dniPropietario:String,
   telefonoPropietario:String,
   correoPropietario: String,
+  conPropietario: Boolean
   
 }, { timestamps: true });
 
