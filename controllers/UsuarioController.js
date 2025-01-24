@@ -46,7 +46,6 @@ const UsuarioController = {
             email: req.body.email,
           })
           if (usuario) {
-    
             // const isMatch = await bcrypt.compare(req.body.password, user.password);
             // if (!isMatch) {
             //   return res.status(400).send({ message: "There was a problem please verify the fields and try again" })
