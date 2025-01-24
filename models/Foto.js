@@ -8,7 +8,8 @@ const FotoSchema = new mongoose.Schema({
   loteId: {type: ObjectId, ref: "Lote"},
   img:String,
   comentarios:String,
-  estado:String
+  estado:String,
+  etiqueta:String
   
 }, { timestamps: true });
 
