@@ -116,8 +116,24 @@ const LoteController = {
             console.error(error);
             res.status(500).send({ message: "Ha habido un problema", error });
         }
-    }
+    },
+    async getLast(req, res) {
+        try {
+            // Ordenar por la fecha de creación (timestamps) en orden descendente
+            const lastLote = await Lote.findOne().sort({ created_at: -1 });
     
+            // Si no se encuentra ningún lote
+            if (!lastLote) {
+                return res.status(404).send({ message: "No se encontraron lotes" });
+            }
+    
+            // Devolver el último lote encontrado
+            res.status(200).send({ message: "Último lote encontrado", lote: lastLote });
+        } catch (error) {
+            console.error(error);
+            res.status(500).send({ message: "Ha habido un problema", error });
+        }
+    }    
     
 }
 
