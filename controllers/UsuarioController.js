@@ -56,6 +56,7 @@ const UsuarioController = {
             // if (user.tokens.length > 4) user.tokens.shift();
             // user.tokens.push(token);
             // await user.save();
+            // res.send({ message: 'Bienvenid@ ' + usuario.name, token, user });
             res.send({ message: 'Bienvenid@ ', usuario });
           } else {
             res.send({ message: 'There was a problem please verify the fields and try again' });
