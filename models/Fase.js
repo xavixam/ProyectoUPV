@@ -11,6 +11,10 @@ const FaseSchema = new mongoose.Schema({
   
 }, { timestamps: true });
 
+FaseSchema.index({
+  nombre: "text",
+});
+
 const Fase = mongoose.model('Fase', FaseSchema);
 
 module.exports = Fase;
