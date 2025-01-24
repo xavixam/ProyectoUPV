@@ -5,6 +5,7 @@ const router = express.Router()
 
 router.get("/",LoteController.getAll)
 router.get("/getLast", LoteController.getLast)
+router.get("/getByNregistro/:nRegistro", LoteController.getByName)
 router.post("/create",LoteController.create)
 router.get("/id/:_id", LoteController.getById)
 
