@@ -5,9 +5,18 @@ const LoteSchema = new mongoose.Schema({
   nRegistro: String,
   carpeta_principal_id: String,
   observaciones: String,
-  // subCarpetas: [{ type: ObjectId, ref: "SubCarpeta" }],
+  idResponsable:{ type: ObjectId, ref: "DniVerificado" },
+  estado: String,
+  otros: String,
+  formularioEscaneado: String,
+  dmg:String,
   subCarpetas: [],
-  faseId: { type: ObjectId, ref: "Fase" }
+  lugar:String,
+  faseId: { type: ObjectId, ref: "Fase" },
+  nombrePropietario: String,
+  dniPropietario:String,
+  telefonoPropietario:String,
+  correoPropietario: String,
   
 }, { timestamps: true });
 
