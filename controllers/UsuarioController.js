@@ -40,6 +40,31 @@ const UsuarioController = {
             console.error(error);
         }
     },
+    async login(req, res) {
+        try {
+          const usuario = await Usuario.findOne({
+            email: req.body.email,
+          })
+          if (usuario) {
+    
+            // const isMatch = await bcrypt.compare(req.body.password, user.password);
+            // if (!isMatch) {
+            //   return res.status(400).send({ message: "There was a problem please verify the fields and try again" })
+            // }
+    
+            // const token = jwt.sign({ _id: user._id }, JWT_SECRET);
+            // if (user.tokens.length > 4) user.tokens.shift();
+            // user.tokens.push(token);
+            // await user.save();
+            res.send({ message: 'Bienvenid@ ', usuario });
+          } else {
+            res.send({ message: 'There was a problem please verify the fields and try again' });
+          }
+    
+        } catch (error) {
+          console.error(error);
+        }
+      },
 }
 
 module.exports = UsuarioController
