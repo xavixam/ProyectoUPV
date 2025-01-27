@@ -11,6 +11,7 @@ const LoteSchema = new mongoose.Schema({
   formularioEscaneado: String,
   dmg:[],
   subCarpetas: [],
+  imagen: String,
   lugar:String,
   faseId: { type: ObjectId, ref: "Fase" },
   nombrePropietario: String,
