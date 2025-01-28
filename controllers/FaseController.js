@@ -120,6 +120,7 @@ const FaseController = {
         );
       }
 
+
       // Paso 3: Crear la nueva fase usando el _id del trabajador y el _id del lote encontrado
       const nuevaFase = await Fase.create({
         ...faseData,
@@ -134,6 +135,7 @@ const FaseController = {
         historialesAgregados: historiales.length,
         nuevaFase,
       });
+      
     } catch (error) {
       console.error(error);
       res

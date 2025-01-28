@@ -17,7 +17,7 @@ const LoteSchema = new mongoose.Schema({
   dniPropietario:String, //
   telefonoPropietario:String,//
   correoPropietario: String, //
-  conPropietario: Boolean // 
+  conPropietario: Boolean //
   
 }, { timestamps: true });
 

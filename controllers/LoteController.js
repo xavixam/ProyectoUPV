@@ -19,7 +19,7 @@ const LoteController = {
         { new: true } // Para que devuelva el documento actualizado
       );
 
-      res.send({ message: "lote successfully updated", lote });
+      res.send(lote);
     } catch (error) {
       console.error(error);
     }
