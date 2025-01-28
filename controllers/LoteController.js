@@ -17,7 +17,7 @@ const LoteController = {
         { nRegistro: req.params.nRegistro }, // Condición de búsqueda
         req.body, // Objeto con los datos a actualizar
         { new: true } // Para que devuelva el documento actualizado
-    );    
+      );
 
       res.send({ message: "lote successfully updated", lote });
     } catch (error) {
