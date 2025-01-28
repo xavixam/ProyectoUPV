@@ -13,11 +13,12 @@ const LoteController = {
   },
   async update(req, res) {
     try {
-      const lote = await Lote.findByIdAndUpdate(
-        req.params._id, //id del lastLote que quiero actualizar
-        req.body, // el objeto con los datos a actualizar
-        { new: true } // para que el lastLote de la respuesta sea el actualizado
-      );
+      const lote = await Lote.findOneAndUpdate(
+        { nRegistro: req.params.nRegistro }, // Condición de búsqueda
+        req.body, // Objeto con los datos a actualizar
+        { new: true } // Para que devuelva el documento actualizado
+    );    
+
       res.send({ message: "lote successfully updated", lote });
     } catch (error) {
       console.error(error);
@@ -143,7 +144,7 @@ const LoteController = {
       res.status(500).send({ message: "Ha habido un problema", error });
     }
   },
-  async getByName(req, res) {
+  async getByNregistro(req, res) {
     try {
       const lote = await Lote.findOne({
         nRegistro: req.params.nRegistro, // Busca coincidencia exacta
