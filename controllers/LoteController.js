@@ -11,14 +11,16 @@ const LoteController = {
       console.error(error);
     }
   },
-  async create(req, res) {
+  async update(req, res) {
     try {
-      const lote = await Lote.create(req.body);
-
-      res.status(201).send({ message: "New type successfully created", lote });
+      const lote = await Lote.findByIdAndUpdate(
+        req.params._id, //id del lastLote que quiero actualizar
+        req.body, // el objeto con los datos a actualizar
+        { new: true } // para que el lastLote de la respuesta sea el actualizado
+      );
+      res.send({ message: "lote successfully updated", lote });
     } catch (error) {
       console.error(error);
-      res.status(500).send({ message: "There was a problem", error });
     }
   },
   // async getById(req, res) {
