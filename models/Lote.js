@@ -4,20 +4,20 @@ const ObjectId = mongoose.SchemaTypes.ObjectId;
 const LoteSchema = new mongoose.Schema({
   nRegistro: String,
   carpeta_principal_id: String,
-  observaciones: String,
+  observaciones: String,//
   idResponsable:{ type: ObjectId, ref: "DniVerificado" },
-  estado: String,
-  otros: String,
-  formularioEscaneado: String,
-  dmg:[],
+  estado: String, //
+  otros: String, //
+  archivo: String,
+  dmg:[], //
   subCarpetas: [],
-  lugar:String,
+  lugar:String, //
   faseId: { type: ObjectId, ref: "Fase" },
-  nombrePropietario: String,
-  dniPropietario:String,
-  telefonoPropietario:String,
-  correoPropietario: String,
-  conPropietario: Boolean
+  nombrePropietario: String, //
+  dniPropietario:String, //
+  telefonoPropietario:String,//
+  correoPropietario: String, //
+  conPropietario: Boolean // 
   
 }, { timestamps: true });
 
