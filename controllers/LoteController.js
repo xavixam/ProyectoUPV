@@ -11,14 +11,17 @@ const LoteController = {
       console.error(error);
     }
   },
-  async create(req, res) {
+  async update(req, res) {
     try {
-      const lote = await Lote.create(req.body);
+      const lote = await Lote.findOneAndUpdate(
+        { nRegistro: req.params.nRegistro }, // Condición de búsqueda
+        req.body, // Objeto con los datos a actualizar
+        { new: true } // Para que devuelva el documento actualizado
+    );    
 
-      res.status(201).send({ message: "New type successfully created", lote });
+      res.send({ message: "lote successfully updated", lote });
     } catch (error) {
       console.error(error);
-      res.status(500).send({ message: "There was a problem", error });
     }
   },
   // async getById(req, res) {
@@ -141,7 +144,7 @@ const LoteController = {
       res.status(500).send({ message: "Ha habido un problema", error });
     }
   },
-  async getByName(req, res) {
+  async getByNregistro(req, res) {
     try {
       const lote = await Lote.findOne({
         nRegistro: req.params.nRegistro, // Busca coincidencia exacta
