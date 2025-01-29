@@ -7,7 +7,8 @@ const FaseSchema = new mongoose.Schema({
   trabajadorId: { type: ObjectId, ref: "DniVerificado" },
   descripcion: String,
   loteId: { type: ObjectId, ref: "Lote" },
-  fecha : Date
+  fecha : Date,
+  subFase: String
   
 }, { timestamps: true });
 

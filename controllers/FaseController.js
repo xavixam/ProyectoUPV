@@ -39,7 +39,9 @@ const FaseController = {
       // Paso 1: Actualizar todas las fases existentes con el mismo nRegistro a terminado: true
       const updatedFases = await Fase.updateMany(
         { loteId: lote._id }, // Buscar fases que correspondan al lote encontrado
-        { terminado: true } // Actualizar el campo terminado
+        { terminado: true,
+          subFase: ""
+         }, // Actualizar el campo terminado
       );
 
       // Paso 2: Registrar las fases actualizadas en la colección Historial, evitando duplicados
@@ -76,6 +78,7 @@ const FaseController = {
         );
       }
 
+
       // Paso 3: Crear la nueva fase usando el _id del trabajador y el _id del lote encontrado
       const nuevaFase = await Fase.create({
         ...faseData,
@@ -97,6 +100,7 @@ const FaseController = {
         historialesAgregados: historiales.length,
         nuevaFase,
       });
+      
     } catch (error) {
       console.error(error);
       res
