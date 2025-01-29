@@ -81,7 +81,8 @@ const FaseController = {
       // Paso 1: Actualizar todas las fases existentes con el mismo nRegistro a terminado: true
       const updatedFases = await Fase.updateMany(
         { loteId: lote._id }, // Buscar fases que correspondan al lote encontrado
-        { terminado: true } // Actualizar el campo terminado
+        { terminado: true },
+        { subFase : ""} // Actualizar el campo terminado
       );
 
       console.log(`Fases actualizadas: ${updatedFases.nModified}`);
