@@ -5,7 +5,8 @@ const SubCarpetaInterna = require("../models/SubCarpetaInterna");
 const LoteController = {
   async getAll(req, res) {
     try {
-      const lote = await Lote.find();
+      const lote = await Lote.find()
+      .populate("faseId")
       res.send(lote);
     } catch (error) {
       console.error(error);
