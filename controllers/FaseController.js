@@ -4,6 +4,35 @@ const Lote = require("../models/Lote");
 const Historial = require("../models/Historial");
 
 const FaseController = {
+  async getFaseAlmacenada(req, res) {
+    try {
+        const fases = await Fase.find({
+            terminado: false,
+            nombre: "Almacen",
+            $or: [
+                { subFase: { $exists: false } }, // No existe el campo subFase
+                { subFase: "" } // Existe pero está vacío
+            ]
+        }).populate("loteId");
+        res.send(fases);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ message: "Error al obtener las fases pendientes sin subFase" });
+    }
+},
+async getFasePendienteAlmacenar(req, res) {
+  try {
+      const fases = await Fase.find({
+          terminado: false,
+          nombre: "Almacen",
+          subFase: { $ne: "", $exists: true } // subFase tiene texto
+      }).populate("loteId");
+      res.send(fases);
+  } catch (error) {
+      console.error(error);
+      res.status(500).send({ message: "Error al obtener las fases pendientes con subFase" });
+  }
+},
   async getAll(req, res) {
     try {
       const fase = await Fase.find();
