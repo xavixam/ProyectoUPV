@@ -7,7 +7,6 @@ const SubCarpetaSchema = new mongoose.Schema({
   nRegistro: String,
   tipo:String,
   subCarpetasInternas: [],
-
   
 }, { timestamps: true });
 
