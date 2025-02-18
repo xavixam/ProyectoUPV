@@ -17,6 +17,7 @@ app.use("/historiales",require("./routes/historial"))
 app.use("/subCarpetas",require("./routes/subCarpeta"))
 app.use("/subCarpetaInternas",require("./routes/subCarpetaInterna"))
 app.use("/usuarios",require("./routes/usuario"))
+app.use("/propietarios",require("./routes/propietario"))
 
 dbConnection()
 
