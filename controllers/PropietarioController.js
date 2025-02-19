@@ -38,6 +38,19 @@ const PropietarioController = {
       res.status(500).send({ message: "Error en el servidor" });
     }
   },
+  async update(req, res) {
+    try {
+      const prop = await Propietario.findOneAndUpdate(
+        { dni: req.params.dni }, // Condición de búsqueda
+        req.body, // Objeto con los datos a actualizar
+        { new: true } // Para que devuelva el documento actualizado
+      );
+
+      res.send(prop);
+    } catch (error) {
+      console.error(error);
+    }
+  },
 };
 
 module.exports = PropietarioController;
