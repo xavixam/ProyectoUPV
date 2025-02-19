@@ -20,6 +20,24 @@ const PropietarioController = {
       res.status(500).send({ message: "There was a problem", error })
     }
   },
+  async getByNregistro(req, res) {
+    try {
+      const prop = await Propietario.findOne({})
+        .populate({
+          path: "loteId",
+          match: { nRegistro: req.params.nRegistro } // Filtrar por nRegistro en Lote
+        });
+
+      if (!prop || !prop.loteId) {
+        return res.status(404).send({ message: "Propietario no encontrado" });
+      }
+
+      res.status(200).send({ message: "Propietario encontrado", propietario: prop });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ message: "Error en el servidor" });
+    }
+  },
 };
 
 module.exports = PropietarioController;
